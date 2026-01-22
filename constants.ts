@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     description: "",
     techStack: ["Figma", "Prototyping"],
     link: "https://www.behance.net/gallery/242456419/No-Code-flow-builder",
-    image: "public/makeflowbuilder.webp",
+    image: "/makeflowbuilder.webp",
     featured: true,
     category: "UI/UX"
   },
@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
     description: "",
     techStack: ["Figma", "Prototyping"],
     link: "https://www.behance.net/gallery/224910177/Travel-Mobile-App-UI-Design",
-    image: "public/getsetgo.jpg",
+    image: "/getsetgo.jpg",
     featured: true,
     category: "UI/UX"
   },
@@ -93,7 +93,7 @@ export const PROJECTS: Project[] = [
     description: "",
     techStack: ["Figma", "Prototyping"],
     link: "https://www.behance.net/gallery/224896181/Furniture-E-commerce-Website-UI-Design",
-    image: "public/furniture.jpg",
+    image: "/furniture.jpg",
     featured: true,
     category: "UI/UX"
   },
@@ -103,7 +103,7 @@ export const PROJECTS: Project[] = [
     description: "",
     techStack: ["Figma", "Prototyping"],
     link: "https://www.behance.net/gallery/221024185/Yummy-delights-Restaurant-home-page",
-    image: "public/yummydelights.jpg",
+    image: "/yummydelights.jpg",
     featured: false,
     category: "UI/UX"
   },
