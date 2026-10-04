@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 
 const BLOBS = [
-  { c: '124,92,255', x: 0.2, y: 0.25, r: 0.5, s: 0.21 },
-  { c: '255,92,138', x: 0.8, y: 0.2, r: 0.42, s: 0.17 },
-  { c: '51,214,193', x: 0.55, y: 0.8, r: 0.45, s: 0.13 },
+  { c: '124,92,255', x: 0.2, y: 0.25, r: 0.5, s: 0.8 },
+  { c: '255,92,138', x: 0.8, y: 0.2, r: 0.42, s: 0.62 },
+  { c: '51,214,193', x: 0.55, y: 0.8, r: 0.45, s: 0.5 },
 ];
 
 const AuroraBackground: React.FC = () => {
@@ -30,8 +30,8 @@ const AuroraBackground: React.FC = () => {
       ctx.clearRect(0, 0, w, h);
       ctx.globalCompositeOperation = 'lighter';
       BLOBS.forEach((b, i) => {
-        const x = (b.x + Math.sin((t * b.s) / 1000 + i * 2) * 0.12) * w;
-        const y = (b.y + Math.cos((t * b.s) / 1000 + i) * 0.1) * h;
+        const x = (b.x + Math.sin((t * b.s) / 1000 + i * 2) * 0.16) * w;
+        const y = (b.y + Math.cos((t * b.s) / 1000 + i) * 0.14) * h;
         const r = b.r * Math.max(w, h) * 0.6;
         const g = ctx.createRadialGradient(x, y, 0, x, y, r);
         g.addColorStop(0, `rgba(${b.c},.30)`);
