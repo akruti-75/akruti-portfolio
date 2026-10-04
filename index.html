@@ -21,8 +21,10 @@
               'accent-glow': 'var(--accent-glow)',
             },
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              serif: ['Newsreader', 'serif'],
+              sans: ['Geist', 'Inter', 'sans-serif'],
+              serif: ['Instrument Serif', 'serif'],
+              display: ['Unbounded', 'sans-serif'],
+              mono: ['Geist Mono', 'ui-monospace', 'monospace'],
             },
             animation: {
               'fade-in': 'fadeIn 0.6s ease-out forwards',
@@ -53,7 +55,7 @@
       };
     </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Unbounded:wght@300;500;700&display=swap');
       
       :root {
         --background: #f8f9fa;
@@ -66,46 +68,34 @@
       }
 
       .dark {
-        --background: #050505;
-        --surface: #0f0f0f;
+        --background: #07070a;
+        --surface: #0f0f14;
         --primary: #ffffff;
         --secondary: #a1a1aa;
         --border: #27272a;
-        --accent: #8b5cf6;
-        --accent-glow: rgba(139, 92, 246, 0.25);
+        --accent: #7c5cff;
+        --accent-glow: rgba(124, 92, 255, 0.25);
       }
       
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Geist', 'Inter', sans-serif;
         background-color: var(--background);
         color: var(--primary);
         transition: background-color 0.3s ease, color 0.3s ease;
         overflow-x: hidden;
       }
       
-      /* Subtle mesh gradient background */
-      body::before {
-        content: '';
-        position: fixed;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 40%);
-        z-index: -1;
-        pointer-events: none;
-      }
-
-      h1, h2, h3, h4, .serif {
-        font-family: 'Newsreader', serif;
-      }
-
       .glass-panel {
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
+
+      @keyframes marquee { to { transform: translateX(-50%); } }
+      .animate-marquee { animation: marquee 40s linear infinite; }
+      @keyframes ping-soft { 50% { box-shadow: 0 0 0 6px rgba(51,214,193,.18); } }
+      @media (prefers-reduced-motion: reduce) { .animate-marquee { animation: none; } }
 
       /* Custom scrollbar */
       ::-webkit-scrollbar {

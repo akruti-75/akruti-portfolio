@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
 
       <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-16">
         <div>
-          <h2 className="text-4xl font-serif italic text-primary mb-4">Let's create together</h2>
+          <h2 className="font-display font-light tracking-[-0.04em] leading-[1.05] text-[clamp(30px,4.4vw,56px)] text-balance text-primary mb-4">Let's create <span className="font-serif italic font-normal tracking-normal text-[1.1em]">together</span></h2>
           <p className="text-secondary text-lg leading-relaxed max-w-xl">
             I'm currently open to new opportunities, freelance projects, or just a chat about design systems and frontend engineering.
           </p>
@@ -20,7 +20,7 @@ const Contact: React.FC = () => {
         <div className="shrink-0 w-full md:w-auto">
           <a
             href={`mailto:${PROFILE_DATA.email}`}
-            className="flex items-center justify-center gap-4 px-8 py-5 rounded-full bg-primary text-background font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-primary/10"
+            className="flex items-center justify-center gap-4 px-8 py-5 rounded-full bg-gradient-to-r from-[#7c5cff] to-[#ff5c8a] text-white font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_14px_40px_rgba(124,92,255,0.35)]"
           >
             <Mail size={22} />
             <span>Send an Email</span>

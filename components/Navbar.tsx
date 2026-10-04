@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
+import { PROFILE_DATA } from '../constants';
 
 interface NavbarProps {
   currentView: 'home' | 'projects';
@@ -31,41 +32,36 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
     }
   };
 
-  return (
-    <div className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
-      <nav className="pointer-events-auto glass-panel shadow-2xl rounded-full px-6 py-2.5 flex items-center gap-6 transition-all duration-300 hover:bg-surface/80">
-        <div className="flex space-x-1 bg-white/5 rounded-full p-1 border border-white/5">
-          <button 
-            onClick={() => onViewChange('home')}
-            className={`px-5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-              currentView === 'home' 
-                ? 'bg-primary text-background shadow-md' 
-                : 'text-secondary hover:text-primary'
-            }`}
-          >
-            Portfolio
-          </button>
-          <button 
-            onClick={() => onViewChange('projects')}
-            className={`px-5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
-              currentView === 'projects' 
-                ? 'bg-primary text-background shadow-md' 
-                : 'text-secondary hover:text-primary'
-            }`}
-          >
-            Work
-          </button>
-        </div>
-        
-        <div className="w-px h-4 bg-border/50"></div>
+  const tab = (view: 'home' | 'projects', label: string) => (
+    <button
+      onClick={() => onViewChange(view)}
+      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+        currentView === view ? 'bg-primary text-background' : 'text-secondary hover:text-primary hover:bg-white/5'
+      }`}
+    >
+      {label}
+    </button>
+  );
 
-        <button 
+  return (
+    <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+      <nav className="pointer-events-auto flex items-center gap-1.5 rounded-full border border-border bg-surface/60 backdrop-blur-xl pl-5 pr-1.5 py-1.5 shadow-2xl shadow-black/20">
+        <span className="hidden sm:block font-semibold text-sm tracking-tight mr-4">{PROFILE_DATA.name}</span>
+        {tab('home', 'Portfolio')}
+        {tab('projects', 'Work')}
+        <button
           onClick={toggleTheme}
-          className="text-secondary hover:text-primary transition-colors p-2 rounded-full hover:bg-white/10"
+          className="text-secondary hover:text-primary transition-colors p-2.5 rounded-full hover:bg-white/10"
           aria-label="Toggle Theme"
         >
           {isDark ? <Moon size={16} /> : <Sun size={16} />}
         </button>
+        <a
+          href={`mailto:${PROFILE_DATA.email}`}
+          className="hidden sm:block px-4 py-2 rounded-full bg-primary text-background text-sm font-semibold hover:opacity-90 transition-opacity"
+        >
+          Let's talk
+        </a>
       </nav>
     </div>
   );

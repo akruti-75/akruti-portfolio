@@ -1,10 +1,34 @@
 import { Project, Experience, Skill, SocialLink } from './types';
 
+export const CAREER_START = new Date('2022-02-11');
+
+// Whole years and leftover months since CAREER_START, counted by calendar month (day ignored).
+const getExperience = (now: Date = new Date()) => {
+  let months = (now.getFullYear() - CAREER_START.getFullYear()) * 12 + (now.getMonth() - CAREER_START.getMonth());
+  months = Math.max(months, 0);
+  return { years: Math.floor(months / 12), months: months % 12 };
+};
+
+const plural = (n: number, unit: string) => `${n} ${unit}${n === 1 ? '' : 's'}`;
+
+// Exact experience, e.g. "4 years 7 months".
+export const getExperienceLabel = (now: Date = new Date()) => {
+  const { years, months } = getExperience(now);
+  const parts = [years > 0 && plural(years, 'year'), months > 0 && plural(months, 'month')].filter(Boolean);
+  return parts.length ? parts.join(' ') : 'under a month';
+};
+
+// Compact form for stat tiles, e.g. "4y 7m".
+export const getExperienceStat = (now: Date = new Date()) => {
+  const { years, months } = getExperience(now);
+  return months > 0 ? `${years}y ${months}m` : `${years}y`;
+};
+
 export const PROFILE_DATA = {
   name: "Akruti Kasture",
   role: "UI/UX Engineer",
   tagline: "Bridging the gap between complex systems and intuitive design.",
-  bio: "UI/UX Engineer with nearly 4 years of experience designing scalable, user-centric web and mobile interfaces for enterprise and SaaS applications. Skilled in UX research, prototyping, information architecture, design systems, and React-based UI implementation. I specialize in simplifying complex, multi-module workflows into intuitive user experiences.",
+  bio: `UI/UX Engineer with ${getExperienceLabel()} of experience designing scalable, user-centric web and mobile interfaces for enterprise and SaaS applications. Skilled in UX research, prototyping, information architecture, design systems, and React-based UI implementation. I specialize in simplifying complex, multi-module workflows into intuitive user experiences.`,
   location: "Goa, India",
   email: "akrutikasture@gmail.com",
   availability: "Available for opportunities",
@@ -67,6 +91,36 @@ export const EXPERIENCE: Experience[] = [
 ];
 
 export const PROJECTS: Project[] = [
+  {
+    id: 5,
+    title: "NexSplit - AI Bill Splitting App",
+    description: "",
+    techStack: ["Figma", "Prototyping"],
+    link: "https://www.behance.net/gallery/256633423/NexSplit-AI-Bill-Splitting-App-UIUX-Case-Study",
+    image: "/nexsplit.jpg",
+    featured: true,
+    category: "UI/UX"
+  },
+  {
+    id: 7,
+    title: "School Management System | Teacher Portal",
+    description: "",
+    techStack: ["Figma", "Prototyping"],
+    link: "",
+    image: "/school-teacher-portal.jpg",
+    featured: true,
+    category: "UI/UX"
+  },
+  {
+    id: 6,
+    title: "NexTracker - Work Tracking Platform",
+    description: "",
+    techStack: ["Figma", "Prototyping"],
+    link: "",
+    image: "/nextracker.jpg",
+    featured: true,
+    category: "UI/UX"
+  },
   {
     id: 1,
     title: "No Code - Flow Builder",

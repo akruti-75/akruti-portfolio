@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { PROJECTS } from '../constants';
-import { ArrowUpRight, Eye, Heart, Layers } from 'lucide-react';
+import ProjectCard from './ProjectCard';
 
 const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState('All');
-  const categories = ['All', 'UI/UX', 'Frontend', 'Mobile Design', 'Design Systems'];
+  const categories = ['All', 'UI/UX', 'Frontend', 'Design Systems'];
 
   const filteredProjects = activeTab === 'All'
     ? PROJECTS
     : PROJECTS.filter(p => p.category === activeTab);
 
   return (
-    <section id="work" className="pt-24 pb-20">
+    <section className="pt-24 pb-20">
 
       {/* Behance Header Integration */}
       <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
         <div>
-          <h2 className="text-4xl font-serif italic text-primary mb-3">Selected Works</h2>
-          <p className="text-secondary text-lg">A curated selection of projects from Dribbble & Behance.</p>
+          <h2 className="font-display font-light tracking-[-0.04em] text-[clamp(32px,4.6vw,60px)] leading-none text-primary mb-3">Selected <span className="font-serif italic font-normal tracking-normal text-[1.1em]">works</span></h2>
+          <p className="text-secondary text-lg">A curated selection of projects from Behance.</p>
         </div>
 
         <div className="flex items-center gap-2">
@@ -56,45 +56,7 @@ const Projects: React.FC = () => {
           </div>
         ) : (
           filteredProjects.map((project) => (
-            <div key={project.id} className="group flex flex-col gap-4">
-
-              {/* Card Image */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-muted border border-border/50 group-hover:shadow-2xl group-hover:shadow-accent/10 transition-all duration-500">
-                <img
-                  src={project.image || "https://via.placeholder.com/400x300?text=Project"}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-[2px]">
-                  <a
-                    href={project.link || '#'}
-                    className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform"
-                    title="View Live"
-                  >
-                    <ArrowUpRight size={20} />
-                  </a>
-                </div>
-
-                {/* Floating Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 bg-black/50 backdrop-blur-md text-white text-xs font-medium rounded-full border border-white/10">
-                    {project.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Card Info */}
-              <div className="flex justify-between items-start px-1">
-                <div>
-                  <h3 className="text-xl font-bold text-primary group-hover:text-accent transition-colors">{project.title}</h3>
-                  <p className="text-secondary text-sm mt-1 line-clamp-1">{project.description}</p>
-                </div>
-
-
-              </div>
-            </div>
+            <ProjectCard key={project.id} project={project} />
           ))
         )}
       </div>

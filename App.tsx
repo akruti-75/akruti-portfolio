@@ -8,6 +8,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIChatBot from './components/AIChatBot';
 import GithubActivity from './components/GithubActivity';
+import AuroraBackground from './components/AuroraBackground';
+import SkillsMarquee from './components/SkillsMarquee';
+import FeaturedWork from './components/FeaturedWork';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<'home' | 'projects'>('home');
@@ -18,13 +21,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-primary selection:bg-accent/30 transition-colors duration-300">
+    <div className="min-h-screen text-primary selection:bg-accent/30 transition-colors duration-300">
+      <AuroraBackground />
       <Navbar currentView={currentView} onViewChange={handleViewChange} />
 
-      <main className="max-w-6xl mx-auto px-6 md:px-12">
+      <main className="max-w-[1240px] mx-auto px-6 md:px-12">
         {currentView === 'home' ? (
           <div className="animate-fade-in space-y-16">
             <Hero />
+            <SkillsMarquee />
+            <FeaturedWork />
             <Skills />
             <Experience />
             <GithubActivity />
