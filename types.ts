@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   techStack: string[];
   link: string;
+  figmaLink?: string;
   github?: string;
   image: string;
   featured: boolean;

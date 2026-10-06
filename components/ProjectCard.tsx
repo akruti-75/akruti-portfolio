@@ -42,6 +42,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '', tall
         <div className="min-w-0">
           <span className="inline-block px-3 py-1 rounded-full border border-border text-xs text-secondary">{project.category}</span>
           <h3 className="mt-2 text-lg md:text-xl font-medium tracking-tight text-primary">{project.title}</h3>
+          {project.figmaLink && (
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.figmaLink, '_blank', 'noopener,noreferrer'); }}
+              className="mt-2 ml-2 inline-block px-3 py-1 rounded-full border border-border text-xs text-secondary hover:border-primary hover:text-primary transition-colors"
+            >
+              Figma Prototype
+            </button>
+          )}
           {project.description && <p className="text-sm text-secondary mt-1 line-clamp-1">{project.description}</p>}
         </div>
         {hasLink ? (

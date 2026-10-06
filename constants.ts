@@ -97,17 +97,8 @@ export const PROJECTS: Project[] = [
     description: "",
     techStack: ["Figma", "Prototyping"],
     link: "https://www.behance.net/gallery/256633423/NexSplit-AI-Bill-Splitting-App-UIUX-Case-Study",
+    figmaLink: "https://www.figma.com/proto/MWFXrDVOu2054O5ZfBZAyN/NexSplit-Screens?node-id=1-174&p=f&t=vDqa86HglLeCIhtn-0",
     image: "/nexsplit.jpg",
-    featured: true,
-    category: "UI/UX"
-  },
-  {
-    id: 7,
-    title: "School Management System | Teacher Portal",
-    description: "",
-    techStack: ["Figma", "Prototyping"],
-    link: "",
-    image: "/school-teacher-portal.jpg",
     featured: true,
     category: "UI/UX"
   },
@@ -116,7 +107,8 @@ export const PROJECTS: Project[] = [
     title: "NexTracker - Work Tracking Platform",
     description: "",
     techStack: ["Figma", "Prototyping"],
-    link: "",
+    link: "https://www.behance.net/gallery/256714983/NexTracker-Admin-Portal-UXUI-Case-Study",
+    figmaLink: "https://www.figma.com/proto/TN6EBYwvo1TzLpQ99FbwIp/NexTracker?node-id=2007-8&t=GzL1uvi1F1gKKcmg-0",
     image: "/nextracker.jpg",
     featured: true,
     category: "UI/UX"
@@ -132,18 +124,8 @@ export const PROJECTS: Project[] = [
     category: "UI/UX"
   },
   {
-    id: 2,
-    title: "Travel Mobile App",
-    description: "",
-    techStack: ["Figma", "Prototyping"],
-    link: "https://www.behance.net/gallery/224910177/Travel-Mobile-App-UI-Design",
-    image: "/getsetgo.jpg",
-    featured: true,
-    category: "UI/UX"
-  },
-  {
     id: 3,
-    title: "Furniture E-commerce Website",
+    title: "Furniture E-commerce Website UI Design",
     description: "",
     techStack: ["Figma", "Prototyping"],
     link: "https://www.behance.net/gallery/224896181/Furniture-E-commerce-Website-UI-Design",
